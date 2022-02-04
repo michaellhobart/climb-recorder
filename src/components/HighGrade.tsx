@@ -1,4 +1,6 @@
+import React from 'react';
 import { Center, Button } from '@mantine/core';
+
 
 interface HighGradeProps {
     highGrade: number;
