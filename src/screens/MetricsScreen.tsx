@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { Center } from '@mantine/core';
-import { Link } from "react-router-dom";
 import Header from "../components/Header"
 import { PieChart, Pie } from 'recharts';
 import { handleGetMetrics } from '../Utils'
@@ -27,7 +26,7 @@ const MetricsScreen = () => {
     }, [])
 
     let renderLabel = function( entry:{ grade: number, count: number, percent: number } ) {
-        return `V${entry.grade} -${Math.round((entry.percent * 100)*10)/10}%`;
+        return `V${entry.grade} ( ${Math.round((entry.percent * 100)*10)/10}% )`;
     }
 
   return (
@@ -35,7 +34,7 @@ const MetricsScreen = () => {
       <Header text="grade metrics" linkText='Home' linkUrl='/'/>
        <Center>
         <PieChart width={400} height={400}>
-                <Pie data={climbingMetrics} dataKey="count" nameKey="count" cx="50%" cy="50%" outerRadius={50} fill="#090c02" label={renderLabel}/>
+                <Pie data={climbingMetrics} dataKey="count" nameKey="count" cx="50%" cy="50%" outerRadius={70} fill="#090c02" label={renderLabel}/>
             </PieChart>
         </Center> 
     </div>
