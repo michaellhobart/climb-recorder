@@ -7,10 +7,6 @@ interface HighGradeProps {
     handleSetGrade: (grade:number) => void
 }
 
-
-
-
-
 const HighGrade : React.FC<HighGradeProps> = ({highGrade, handleSetGrade}) => {
     const handleUpGrade = (grade: number) => {
         if (grade <= 16){
@@ -24,10 +20,10 @@ const HighGrade : React.FC<HighGradeProps> = ({highGrade, handleSetGrade}) => {
         }
     }
     return (
-        <Center style={{backgroundColor:'#bbc5aa', width: '100%', marginBottom: '1rem', height: '120px'}}>
-            <Button onClick={() => handleDownGrade(highGrade)}>-</Button>
+        <Center style={{backgroundColor:'#bbc5aa', width: '100%', height: '120px'}}>
+            <Button style={{backgroundColor: '#090c02'}} onClick={() => handleDownGrade(highGrade)}>-</Button>
             <h2 style={{textTransform: 'uppercase', marginRight: '2rem', marginLeft: '2rem'}}>{highGrade}</h2>
-            <Button onClick={() => handleUpGrade(highGrade)}>+</Button>
+            <Button style={{backgroundColor: '#090c02'}} onClick={() => handleUpGrade(highGrade)}>+</Button>
         </Center>
     )
 }

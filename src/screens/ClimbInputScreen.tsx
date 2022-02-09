@@ -6,19 +6,17 @@ import HighGrade from "../components/HighGrade"
 
 
 const ClimbInputScreen  : React.FC<{}> = () => {
-    const [highGrade, setHighGrade] = useState(1)
-
-    const getRes = async (url:string) => {
-        const res = await fetch(url)
-        return await res.json()
-    }
-
+    const [highGrade, setHighGrade] = useState(6)
     const handleSetGrade = (grade:number) => setHighGrade(grade)
     return (
         <>
-            <Center style={{width: '100%', display: 'flex', flexDirection:'column' }} >
-                <Header text="boulder climb recorder"/>
-                <ButtonPad highGrade={highGrade} />
+            <Center style={{width: '100%', height: '100vh', display: 'flex', flexDirection:'column' }} >
+                
+                <div style={{width: '100%', flexGrow: 1}}>
+                    <Header text="boulder climb recorder"/>
+                    <ButtonPad highGrade={highGrade} />
+                </div>
+                
                 <HighGrade highGrade={highGrade} handleSetGrade={handleSetGrade}/>
             </Center>
         </>

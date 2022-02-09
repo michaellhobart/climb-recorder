@@ -1,6 +1,7 @@
 import React from 'react';
 import { Center } from '@mantine/core';
 
+
 interface HeaderProps {
     text?: string;
 }

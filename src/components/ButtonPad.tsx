@@ -27,7 +27,7 @@ const ButtonPad : React.FC<ButtonPadProps> = ({highGrade}) => {
 
                 {[ ...Array(highGrade+1) ].map((_, idx) => {
                     return (
-                        <Button key={idx} style={{height: '60px', backgroundColor: "#a72608"}} onClick={() => handleAddClimb(idx)}>{`V${idx}`}</Button>
+                        <Button key={idx} style={{height: '60px', backgroundColor: "#BBC5AA"}} onClick={() => handleAddClimb(idx)}>{`V${idx}`}</Button>
                     )
                 })}
             </SimpleGrid>
