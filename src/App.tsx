@@ -9,28 +9,13 @@ import {
   Route
 } from "react-router-dom";
 
-
-
-// const MetricsScreen = () => {
-//   return (
-//     <>
-//       <h1>Metrics</h1>
-//     </>
-//   )
-// }
-
-
 function App() {
-  // const [isLoggedIn, setIsLoggedIn] = useState(false)
   return (
     <AppWrapper>
-      <Router>
         <Routes>
           <Route path="/" element={<ClimbInputScreen />}></Route>
           <Route path="/metrics" element={<MetricsScreen />}></Route>
         </Routes>
-      </Router>
-        
     </AppWrapper>
   );
 }

@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
-import { Center, SimpleGrid, Button } from '@mantine/core';
+import { Center } from '@mantine/core';
+import { Link } from "react-router-dom";
 import Header from "../components/Header"
 import { PieChart, Pie } from 'recharts';
 import { handleGetMetrics } from '../Utils'
@@ -11,7 +12,6 @@ interface metricsValues {
 
 const MetricsScreen = () => {
     const [ climbingMetrics, setClimbingMetrics ] = useState([])
-
     useEffect(() => {
         (async () => {
           try {
@@ -32,7 +32,7 @@ const MetricsScreen = () => {
 
   return (
     <div style={{display:'flex', flexDirection: 'column'}}>
-      <Header text="grade metrics"/>
+      <Header text="grade metrics" linkText='Home' linkUrl='/'/>
        <Center>
         <PieChart width={400} height={400}>
                 <Pie data={climbingMetrics} dataKey="count" nameKey="count" cx="50%" cy="50%" outerRadius={50} fill="#090c02" label={renderLabel}/>
