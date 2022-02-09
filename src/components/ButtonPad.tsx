@@ -2,16 +2,12 @@ import { SimpleGrid, Button, Modal } from '@mantine/core';
 import React, { useState } from 'react';
 import { addClimb } from '../Utils'
 
-interface ButtonPadProps {
-    highGrade: number;
-}
-
-const ButtonPad : React.FC<ButtonPadProps> = ({highGrade}) => {
-    const [opened, setOpened] = useState(false)
+const ButtonPad : React.FC<{highGrade: number}> = ({highGrade}) => {
+    const [opened, setOpened] = useState<boolean>(false)
 
     const handleAddClimb = async (grade:number) => {
         setOpened(true)
-        const res = await addClimb(grade)
+        await addClimb(grade)
         setTimeout(() => setOpened(false), 1000)
     }
     return (

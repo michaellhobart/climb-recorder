@@ -1,37 +1,33 @@
 import React, { useState, useEffect } from 'react'
-import axios from 'axios'
 import { Center, SimpleGrid, Button } from '@mantine/core';
 import Header from "../components/Header"
 import { PieChart, Pie } from 'recharts';
-import { apiBaseURL } from '../Config'
 import { handleGetMetrics } from '../Utils'
+
+interface metricsValues {
+  grade: number,
+  count: string
+}
 
 const MetricsScreen = () => {
     const [ climbingMetrics, setClimbingMetrics ] = useState([])
-    let [ totalClimbs, setTotalClimbs] = useState(0)
 
     useEffect(() => {
         (async () => {
           try {
             const metricsRes = await handleGetMetrics()
-            let counter = 0
-            const newAry = metricsRes.map((metric:any) => {
-              const _count = parseInt(metric.count)
-              counter += _count
-              
-              return {grade:metric.grade, count: _count}
+            const newAry = metricsRes.map((metric:metricsValues) => {
+              return {grade:metric.grade, count:parseInt(metric.count)}
           })
-            setTotalClimbs(counter)
-            setClimbingMetrics(newAry) 
+              setClimbingMetrics(newAry) 
           } catch (err) {
             console.error(err)
           }
         })()
     }, [])
 
-    let renderLabel = function(entry:any) {
-      console.log('totalClimbs:', totalClimbs)
-        return `V${entry.grade} -${Math.round(entry.count/totalClimbs*100*10)/10}%`;
+    let renderLabel = function( entry:{ grade: number, count: number, percent: number } ) {
+        return `V${entry.grade} -${entry.percent * 100}%`;
     }
 
   return (
