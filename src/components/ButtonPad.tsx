@@ -8,7 +8,7 @@ const ButtonPad : React.FC<{highGrade: number}> = ({highGrade}) => {
     const handleAddClimb = async (grade:number) => {
         setOpened(true)
         await addClimb(grade)
-        setTimeout(() => setOpened(false), 1000)
+        setTimeout(() => setOpened(false), 900)
     }
     return (
         <>

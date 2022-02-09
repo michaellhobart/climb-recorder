@@ -27,7 +27,7 @@ const MetricsScreen = () => {
     }, [])
 
     let renderLabel = function( entry:{ grade: number, count: number, percent: number } ) {
-        return `V${entry.grade} -${entry.percent * 100}%`;
+        return `V${entry.grade} -${Math.round((entry.percent * 100)*10)/10}%`;
     }
 
   return (
